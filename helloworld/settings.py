@@ -7,7 +7,7 @@ SECRET_KEY = 'm#)_)$5dacj_3w*(0k(=rdv&-drml#_m2v4lw3na4$ca-yu3be'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
 
 
 INSTALLED_APPS = [
@@ -55,11 +55,11 @@ WSGI_APPLICATION = 'helloworld.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'mydockerproject',
-        'USER': 'myprojectuser',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'db',
+        'PORT': '5432',
+        'PASSWORD': 'example',
     }
 }
 
@@ -90,5 +90,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 STATIC_URL = '/static/'
